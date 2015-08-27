@@ -1,0 +1,11 @@
+{
+  "name": "dir2array",
+  "version": "0.1.0",
+  "description": "Get an array with all files in a directory (including files in subdirectories).",
+  "main": "dir2array.js",
+  "author": "Josemi Juanes <jmjuanes@outlook.com>",
+  "license": "MIT",
+  "files": ["LICENSE", "CHANGELOG.md", "README.md", "dir2array.js"],
+  "repository": {"type": "git", "url": "git://github.com/jmjuanes/dir2array.git"},
+  "keywords": ["dir2array", "dir", "directories", "files", "array"]
+}

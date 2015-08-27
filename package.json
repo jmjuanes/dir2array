@@ -1,6 +1,6 @@
 {
   "name": "dir2array",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Get an array with all files in a directory (including files in subdirectories).",
   "main": "dir2array.js",
   "author": "Josemi Juanes <jmjuanes@outlook.com>",

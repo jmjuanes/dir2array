@@ -5,13 +5,24 @@ var fs = require('fs');
 var dir2array = new function()
 {
 	//Version
-	this.version = '0.1.0';
+	this.version = '0.1.1';
 	
 	//Scan function
 	this.Scan = function(dir)
 	{
 		//Save the parent
 		var parent = dir;
+		
+		//Check if parent is empty
+		if(parent === '' || parent === '/')
+		{
+			//Show error
+			console.error('Error: directory to scan cannot be empty.');
+			console.error('If you want to scan your script location, please use "dir2array.Scan(__dirname);"');
+			
+			//Return 
+			return null;
+		}
 		
 		//Check if the las character is a /
 		if(parent.slice(-1) !== '/')
@@ -35,7 +46,7 @@ var dir2array = new function()
 		var result = [];
 		
 		//Scan the dir
-		var scan = fs.readdirSync(parent + '/' + dir);
+		var scan = fs.readdirSync(parent + dir);
 		
 		//Read the results
 		for(var i = 0; i < scan.length; i++)

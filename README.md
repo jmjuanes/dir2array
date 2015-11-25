@@ -1,8 +1,8 @@
 # dir2array
 Get an array with all files in a directory (including files in subdirectories).
 
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
+[![npm](https://img.shields.io/npm/v/dir2array.svg?style=flat-square)](https://www.npmjs.com/package/dir2array)
+[![npm](https://img.shields.io/npm/dt/dir2array.svg?style=flat-square)](https://www.npmjs.com/package/dir2array)
 
 
 ## Install
@@ -49,10 +49,3 @@ dir2array.DirExists('dir/file.txt'); //Returns false because file.txt is not a d
 ## License
 
 **dir2array** is under the [MIT](LICENSE) license.
-
-
-
-[npm-image]: https://img.shields.io/npm/v/dir2array.svg
-[npm-url]: https://npmjs.org/package/dir2array
-[downloads-image]: https://img.shields.io/npm/dm/dir2array.svg
-[downloads-url]: https://npmjs.org/package/dir2array

@@ -5,32 +5,32 @@ var fs = require('fs');
 var dir2array = new function()
 {
 	//Version
-	this.version = '0.1.1';
-	
+	this.version = '0.1.2';
+
 	//Scan function
 	this.Scan = function(dir)
 	{
 		//Save the parent
 		var parent = dir;
-		
+
 		//Check if parent is empty
 		if(parent === '' || parent === '/')
 		{
 			//Show error
 			console.error('Error: directory to scan cannot be empty.');
 			console.error('If you want to scan your script location, please use "dir2array.Scan(__dirname);"');
-			
-			//Return 
+
+			//Return
 			return null;
 		}
-		
+
 		//Check if the las character is a /
 		if(parent.slice(-1) !== '/')
 		{
 			//Add
 			parent = parent + '/';
 		}
-		
+
 		//Check if directory exists
 		if(this.DirExists(parent))
 		{
@@ -38,16 +38,16 @@ var dir2array = new function()
 			return this.RecursiveDir(parent, '');
 		}
 	};
-	
+
 	//Scan dir
 	this.RecursiveDir = function(parent, dir)
 	{
 		//Array
 		var result = [];
-		
+
 		//Scan the dir
 		var scan = fs.readdirSync(parent + dir);
-		
+
 		//Read the results
 		for(var i = 0; i < scan.length; i++)
 		{
@@ -56,7 +56,7 @@ var dir2array = new function()
 			{
 				//If is a dir, call recursive function
 				var result2 = this.RecursiveDir(parent, dir + scan[i] + '/');
-				
+
 				//Merge the two arrays
 				result = result.concat(result2);
 			}
@@ -66,21 +66,21 @@ var dir2array = new function()
 				result.push(dir + scan[i]);
 			}
 		}
-		
+
 		//Return result
 		return result;
 	};
-	
+
 	//Check if result is a dir
 	this.IsDir = function(item)
 	{
 		//Check
 		var is = fs.lstatSync(item).isDirectory();
-		
+
 		//Return
 		return is;
 	};
-	
+
 	//Check if dir exists
 	this.DirExists = function(dir)
 	{
@@ -89,7 +89,7 @@ var dir2array = new function()
 		{
 			//Get the status
 			var stats = fs.lstatSync(dir);
-			
+
 			//Is a directory
 			if(stats.isDirectory())
 			{
@@ -99,8 +99,8 @@ var dir2array = new function()
 			else
 			{
 				//Show warning
-				console.error('Error: "' + dir + '" is not a directory.');
-				
+				//console.log('Error: "' + dir + '" is not a directory.');
+
 				//Return false
 				return false;
 			}
@@ -108,8 +108,8 @@ var dir2array = new function()
 		catch(e)
 		{
 			//Show error
-			console.error('Error: directory "' + dir + '" does not exist.');
-			
+			//console.log('Error: directory "' + dir + '" does not exist.');
+
 			//Return false
 			return false;
 		}
